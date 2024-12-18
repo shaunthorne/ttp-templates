@@ -1,0 +1,2 @@
+Interface {{ ignore ('\s+') }} Status {{ ignore ('\s+') }} Protocol {{ ignore ('\s+') }} Description
+{{ interface }} {{ status }} {{ protocol }} {{ descrip | ORPHRASE }}

@@ -1,0 +1,16 @@
+<doc>
+TTP template to parse D-Link DES/DGS switch 'show fdb' output
+
+Currently supported series:
+DES-xx28/ME
+DES-3526
+DES-3200-xx/ME
+DSG-1100-06/ME
+DGS-1510 Series
+DSG-3120 Series
+</doc>
+
+{{ ignore("(-+)+") }}
+<group method="table">
+{{ ignore("\s?") }}{{ vlan_id | DIGIT | to_int }} {{ vlan_name }} {{ mac_address | mac_eui }} {{ port }} {{ ignore("\s*.+") }}
+</group>

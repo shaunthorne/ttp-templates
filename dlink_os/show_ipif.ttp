@@ -1,0 +1,3 @@
+{{ ignore(".*Interface.*")}} : {{ interface }}
+VLAN Name : {{ vlan_name }}
+{{ ignore(".+Adm.+Stat.+")}} : {{ state }}

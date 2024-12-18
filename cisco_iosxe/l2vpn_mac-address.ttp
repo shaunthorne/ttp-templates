@@ -1,0 +1,10 @@
+<doc>
+e48d.8c66.8817 dynamic BE1000.305                  0/0/CPU0   0d 0h 0m 0s        N/A           
+0006.7c28.c4ff dynamic (10.10.0.98, 1522)          0/0/CPU0   0d 0h 0m 0s        N/A           
+a0ab.1b47.24b1 dynamic (10.10.0.98, 1522)          0/0/CPU0   0d 0h 0m 0s        N/A
+</doc>
+
+<group method='table'>
+{{ mac | MAC}} {{ type }} {{ src | re("[a-zA-Z]{1}\S+")}} {{ ignore(".*") }}
+{{ mac | MAC}} {{ type }} ({{ src | ORPHRASE }}) {{ ignore(".*") }}
+</group>

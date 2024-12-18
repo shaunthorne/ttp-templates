@@ -1,0 +1,1 @@
+{{ ip_address | IP }} {{ mac_address | mac_eui }} {{ interface }} {{ port }} {{ type}} {{ ignore(ORPHRASE) }}

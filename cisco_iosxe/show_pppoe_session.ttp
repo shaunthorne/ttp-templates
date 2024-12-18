@@ -1,0 +1,2 @@
+{{ ignore('\ +')}} {{ unique_id | DIGIT}}  {{ session_id | DIGIT }}  {{ mac_address }}  {{ sub_intf }} {{ vt }}  {{ virtual_intf }}   PTA  
+ 

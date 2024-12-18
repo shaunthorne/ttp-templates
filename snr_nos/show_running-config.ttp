@@ -1,0 +1,47 @@
+<vars>
+vlans = "unrange(rangechar='-', joinchar=';') | joinmatches(';')"
+</vars>
+
+<macro>
+def check_if_svi(data):
+    if "Vlan" in data["interface"]:
+        data["is_svi"] = True
+    else:
+        data["is_svi"] = False
+    return data
+
+def check_if_loop(data):
+    if "Loopback" in data["interface"]:
+        data["is_loop"] = True
+    else:
+        data["is_loop"] = False
+    return data
+</macro>
+
+<!-- не работает!
+<group name="vlan" method='group'>
+! {{ _start_ }}
+vlan {{ vlan_id | chain('vlans') }}
+!
+</group>
+-->
+
+<group name='l2_interfaces.{{ interface}}'>
+Interface {{ interface }}
+ description {{ description | ORPHRASE }}
+ shutdown {{ disabled | set(True) }}
+ switchport mode trunk {{ is_trunk | set(True) }}
+ switchport access vlan {{ access_vlan | default('1') }}
+ mtu {{ mtu }}
+</group>
+
+<group name='l3_interfaces.Vlan{{ vlan_id }}'>
+interface Vlan{{ vlan_id }}
+ ip address {{ ip_address }} {{ mask }}
+ ip helper-address {{ helper_addresses  | joinmatches(',') | to_list }}
+</group>
+
+<group name='general'>
+ip default-gateway {{ default_gateway }}
+multi config {{ multi_config_enabled | set(True) | default(False) }}
+</group>

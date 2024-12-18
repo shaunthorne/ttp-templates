@@ -1,0 +1,3 @@
+<group>
+{{ subnet | exclude("-") }} {{ nexthop }} {{ cost }} {{ proto }} {{ backup }} {{ status }}
+</group>

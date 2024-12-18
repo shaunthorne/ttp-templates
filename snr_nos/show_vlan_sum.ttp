@@ -1,0 +1,3 @@
+Universal Vlan:{{ _start_ }}
+{{ vlans | startswith_re('\d+') | ROW | joinmatches | split() }}
+Total{{ ignore('.+') | _end_ }}

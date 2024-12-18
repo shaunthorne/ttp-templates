@@ -1,0 +1,1 @@
+{{ virtual_intf }} {{ ignore('LCP\+') }} {{ ignore }} {{ ignore }} {{ ignore }} {{ ignore }} {{ ip_address }} {{ login | ORPHRASE}}

@@ -1,0 +1,1 @@
+ {{ port }}   {{ status }}      {{ speed }}      {{ duplex }}      {{ medium }}     {{ description }}

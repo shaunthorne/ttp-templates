@@ -1,0 +1,14 @@
+<doc>
+TTP template to parse D-Link DES/DGS switch "show arpentry" output
+
+Currently supported series:
+DES-xx28/ME
+DES-3200-xx/ME
+DSG-1100-06/ME
+DGS-1510 Series
+</doc>
+
+<group record="ip_interface" set="ip_interface" method="table">
+{{ ip_interface }} {{ ip | IP }} {{ mac | MAC | mac_eui }} {{ type }}
+{{ ignore("\s+") }} {{ ip | IP }} {{ mac | MAC | mac_eui }} {{ type }}
+</group>

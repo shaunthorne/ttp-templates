@@ -1,0 +1,2 @@
+{{ interface }} {{ status }} {{ protocol | contains('up', 'down') }} {{ descrip | ORPHRASE | default('') }}
+{{ interface }} {{ status }} {{ protocol | contains('up', 'down') }}

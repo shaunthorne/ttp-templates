@@ -1,0 +1,1 @@
+{{ ip_address }} {{ mac_address | mac_eui }} {{type }} {{ ip_interface }}

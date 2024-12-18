@@ -1,0 +1,29 @@
+<vars>
+vlans = "unrange(rangechar='-', joinchar=',') | split(',')  | joinmatches(',')"
+</vars>
+
+<vars load="python">
+intf_replace = {
+                'Gi': ['^gigabitEthernet '],
+                'Te': ['^ten-gigabitEthernet ']
+                }
+</vars>
+
+<group name='l3_interfaces.VLAN{{ vlan_id }}'>
+interface vlan {{ vlan_id }}
+  ip address {{ ip_address }} {{ mask }}
+</group>
+
+<group name='l2_interfaces.{{ interface}}'>
+interface {{ interface | ORPHRASE | contains_re('Ethernet') | resuball('intf_replace') }}
+  switchport general allowed vlan {{ access_vlan | default('1') }} untagged
+  switchport general allowed vlan {{ tagged_vlans | macro ('add_trunk') | chain('vlans') }} tagged
+  description {{ description | ORPHRASE | default('') }}
+  shutdown {{ disabled | set(True) | default(False) }}
+</group>
+
+<group name="general">
+!{{ model }}
+vlan {{ configured_vlans | chain('vlans') }}
+ip route 0.0.0.0 0.0.0.0 {{ default_gateway }}
+</group>

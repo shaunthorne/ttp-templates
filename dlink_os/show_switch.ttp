@@ -1,0 +1,25 @@
+<!--
+TTP template to parse D-Link DES/DGS switch 'show switch' output
+
+Currently supported series:
+DES-xx28/ME
+DES-3200-xx/ME
+DSG-1100-06/ME
+DGS-1510-XX
+-->
+
+<vars>
+first_word = "ORPHRASE | truncate(1)"
+no_build = 'ORPHRASE | replace("Build ", "")'
+</vars>
+<group>
+Device Type : {{ model | chain("first_word") }}
+MAC Address : {{ mac_address | mac_eui }}
+IP Address : {{ ip_address | chain("first_word") }}
+Subnet Mask : {{ mask }}
+Default Gateway : {{ default_gateway }}
+{{ ignore("(Sys\S+\s)?[Bb]oot.+[Vv]er\S+") }} : {{ boot_version | chain('no_build') }}
+{{ ignore("(Sys\S+\s)?[Ff]irm\S+\s[Vv]er\S+") }} : {{ firmware_version | chain('no_build') }}
+{{ ignore("(Sys\S+\s)?[Hh]ard\S+\s[Vv]er\S+") }} : {{ hardware_version }}
+{{ ignore("(Sys\S+\s)?[Ss]eri\S+\s[Nn]um\S+") }} : {{ serial_number }}
+</group>

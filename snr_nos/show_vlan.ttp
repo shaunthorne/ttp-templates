@@ -1,0 +1,8 @@
+<vars>
+ports = "ROW | ORPHRASE | split() |  joinmatches(',')"
+</vars>
+
+<group name='{{ vlan_id }}'>
+{{ vlan_id | DIGIT | to_int }} {{ name }} {{ type }} {{ ignore }} {{ ports | chain("ports") }}
+{{ ignore('\s+')}}{{ ports  | chain("ports") }}
+</group>

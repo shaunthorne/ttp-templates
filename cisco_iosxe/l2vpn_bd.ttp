@@ -1,0 +1,1 @@
+{{ bd_name }} {{ bd_id }} {{ bd_ports_count | DIGIT }} {{ bd_mac_count | DIGIT }} {{ bd_flooding }} {{ bd_learning }} {{ bd_state }}

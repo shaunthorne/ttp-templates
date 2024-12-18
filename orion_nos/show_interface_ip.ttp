@@ -1,0 +1,1 @@
+{{ interface }} {{ ip_address }} {{ mask }} {{ vlan_id }} {{ state }}

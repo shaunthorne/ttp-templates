@@ -1,0 +1,4 @@
+NAME: "module mau {{ interface }}", DESCR: "{{ description | ORPHRASE }}"
+PID: {{ PID | default('N/A') }} , VID: {{ ignore() }} , SN: {{ serial_number | default('N/A') }}
+NAME: "module mau {{ interface }}", DESCR: "{{ description | ORPHRASE }}"
+PID:    , VID: N/A, SN: CI1903060176

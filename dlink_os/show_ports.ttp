@@ -1,0 +1,7 @@
+<vars>
+is_enabled = "[Ee]nabled|[Dd]isabled"
+</vars>
+<group>
+ {{ port | DIGIT }} {{ adm_state }} {{ flow_control }} {{ link_state | ORPHRASE }} {{ learning | contains_re('is_enabled') }}
+{{ port | DIGIT }} {{ adm_state }} {{ flow_control }} {{ link_state | ORPHRASE }} {{ learning | contains_re('is_enabled') }}
+</group>

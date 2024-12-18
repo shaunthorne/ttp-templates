@@ -1,0 +1,7 @@
+<vars>
+ports = "ROW | ORPHRASE | split() |  joinmatches(',')"
+</vars>
+
+<group name="{{ vlan_id }}">
+{{ vlan_id | DIGIT | unrange(rangechar='-', joinchar=',') | split(',')  | joinmatches(',') }} {{ ignore('.+')}}
+</group>

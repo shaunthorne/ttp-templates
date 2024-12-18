@@ -1,0 +1,27 @@
+<doc>
+TTP template to parse D-Link DES/DGS switch 'show vlan' output
+
+Currently supported series:
+DES-xx28/ME
+DES-3200-xx/ME
+DSG-1100-06/ME
+DGS-1510 Series
+</doc>
+
+<macro>
+def process_vlan(data):
+    data['ports_tagged'] = sorted(set(data['ports']) - set(data['ports_untagged']), key=lambda x: int(x))
+    return data
+</macro>
+
+<vars>
+all_ports_prefix = "(?i)member ports"
+untagged_prefix = "(?i)(current )?untagged ports"
+to_range = "unrange(rangechar='-', joinchar=',') | split(',')"
+</vars>
+
+<group name='{{ vid }}' macro='process_vlan'>
+VID : {{ vid }} VLAN {{ ignore}} : {{ vlan_name }}
+{{ ignore(all_ports_prefix) }} : {{ ports | chain('to_range') | default([]) }}
+{{ ignore(untagged_prefix) }} : {{ ports_untagged | chain('to_range') | default([]) }}
+</group>

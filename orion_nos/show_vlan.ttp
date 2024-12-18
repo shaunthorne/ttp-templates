@@ -1,0 +1,16 @@
+<macro>
+def process_vlan(data):
+    ports_set = set(data['ports'])
+    ports_untagged_set = set(data['ports_untagged'])
+    data['ports_tagged'] = list(ports_set - ports_untagged_set)
+    data['ports_tagged'].sort(key=lambda x: int(x))
+    return data
+</macro>
+
+<vars>
+vlans = "unrange(rangechar='-', joinchar=',') | split(',')"
+</vars>
+
+<group name='{{ vlan_id }}' macro='process_vlan'>
+{{ vlan_id | DIGIT }} {{ name }} {{ state }} {{ status }} {{ ports | chain('vlans') }} {{ ports_untagged | chain('vlans') }} {{ ignore(".+") }}
+</group>

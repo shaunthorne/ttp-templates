@@ -1,0 +1,1 @@
+{{ vlan_id }} {{ mac_address | mac_eui }} {{ type }} {{ origin }} {{ port }}

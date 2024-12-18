@@ -1,0 +1,23 @@
+<vars>
+vlans = "unrange(rangechar='-', joinchar=',') | joinmatches(',') | split(',')"
+</vars>
+
+<group name='l2_interfaces.{{ interface}}'>
+interface port {{ interface }}
+description {{ description | ORPHRASE }}
+shutdown {{ disabled | set(True) | default(False) }}
+switchport mode trunk {{ is_trunk | set(True) | default(False) }}
+switchport access vlan {{ access_vlan | default('1') }}
+mtu {{ mtu }}
+</group>
+
+<group name='l3_interfaces.Vlan{{ vlan_id }}'>
+interface ip {{ interface }}
+ip address {{ ip_address }} {{ mask }} {{ vlan_id }}
+ip vlan {{ vlan_id }}
+</group>
+
+<group name='general'>
+create vlan {{ configured_vlans | chain('vlans') }} active
+ip default-gateway {{ default_gateway }}
+</group>

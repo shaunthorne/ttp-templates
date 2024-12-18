@@ -1,0 +1,13 @@
+<doc>
+TTP template to parse D-Link DES/DGS series switch exos-styled CLI "show arpentry" output
+
+Currently supported series:
+DES-xx28/ME
+</doc>
+
+<group>
+Port_security Trap/Log : {{ trap_log | re("[Dd]isabled") | let(True) | default(False) }}
+</group>
+<group name="ports.{{ port }}" method="table">
+{{ port }} {{ enabled }} {{ max_addr | DIGIT }} {{ lock_mode }} 
+</group>

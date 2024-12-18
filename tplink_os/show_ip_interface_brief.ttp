@@ -1,0 +1,1 @@
+ {{ ignore('VLAN') }}{{ vlan_id }} {{ status }} {{ protocol }} {{ shutdown }} {{ ip_address | IP}}/{{ mask }} {{ type }} {{ method }}
