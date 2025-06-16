@@ -1,0 +1,4 @@
+ upper temperature threshold is {{ warn_high | to_float }} degree 
+ low temperature threshold is {{ warn_low | to_float }} degree
+ current temperature is {{ temperature | to_float }} degree
+ Status:{{ status }}

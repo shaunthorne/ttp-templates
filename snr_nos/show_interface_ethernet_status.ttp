@@ -1,0 +1,11 @@
+Interface  Link/Protocol  Speed   Duplex  Vlan   Type            Alias Name
+1/0/1      UP/UP          a-1G    a-FULL  301    G-TX            CRB-Inet
+1/0/2      A-DOWN/DOWN    auto    auto    1      G-TX            
+1/0/3      A-DOWN/DOWN    auto    auto    1      G-TX            
+1/0/4      A-DOWN/DOWN    auto    auto    439    G-TX            
+1/0/5      DOWN/DOWN      auto    auto    439    G-TX            kanali-crb
+1/0/6      UP/UP          a-100M  a-FULL  439    G-TX            
+1/0/7      UP/UP          a-1G    a-FULL  3100   G-TX            MinGos
+1/0/8      A-DOWN/DOWN    auto    auto    439    G-TX            
+1/0/9      DOWN/DOWN      auto    auto    trunk  SFP             
+1/0/10     UP/UP          a-1G    a-FULL  trunk  SFP             Uplink

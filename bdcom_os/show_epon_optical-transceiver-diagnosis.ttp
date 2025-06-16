@@ -1,0 +1,1 @@
+{{ interface | contains("pon") }} {{ temperature | to_float }} {{ voltage }} {{ current }} {{ tx_power }}

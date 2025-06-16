@@ -15,13 +15,13 @@ def process_vlan(data):
 </macro>
 
 <vars>
-all_ports_prefix = "(?i)member ports"
-untagged_prefix = "(?i)(current )?untagged ports"
+all_ports_prefix = "(?i)member ports\s*:"
+untagged_prefix = "(?i)(current )?untagged ports\s*:"
 to_range = "unrange(rangechar='-', joinchar=',') | split(',')"
 </vars>
 
 <group name='{{ vid }}' macro='process_vlan'>
 VID : {{ vid }} VLAN {{ ignore}} : {{ vlan_name }}
-{{ ignore(all_ports_prefix) }} : {{ ports | chain('to_range') | default([]) }}
-{{ ignore(untagged_prefix) }} : {{ ports_untagged | chain('to_range') | default([]) }}
+{{ ignore(all_ports_prefix) }} {{ ports | chain('to_range') | default([]) }}
+{{ ignore(untagged_prefix) }} {{ ports_untagged | chain('to_range') | default([]) }}
 </group>

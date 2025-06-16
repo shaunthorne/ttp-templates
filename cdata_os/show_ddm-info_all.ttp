@@ -1,0 +1,1 @@
+  {{ f | DIGIT }}/{{ s | DIGIT }} {{ interface }} {{ temperature | to_float }} {{ voltage }} {{ current }} {{ rx_power }} {{ tx_power }}

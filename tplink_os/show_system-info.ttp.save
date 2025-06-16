@@ -1,8 +1,10 @@
 <group>
  Hardware Version    - {{ model }} {{ hardware_version }}
- Software Version    - {{ firmware_version | ORPHRASE }}
+ Software Version    - {{ software_version | ORPHRASE }}
  Bootloader Version  - {{ boot_version | ORPHRASE }}
  Mac Address         - {{ mac_address | MAC | mac_eui }}
  Serial Number       - {{ serial_number }}
  Running Time        - {{ uptime | ORPHRASE | uptimeparse }}
 </group>
+
+

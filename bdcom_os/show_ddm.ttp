@@ -1,0 +1,1 @@
+{{ interface | contains("0") }} {{ tx_power }} {{ rx_power }} {{ voltage }} {{ current }} {{ temperature | to_float }}  

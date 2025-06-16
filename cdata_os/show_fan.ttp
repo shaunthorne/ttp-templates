@@ -1,0 +1,3 @@
+<group>
+  FAN[{{ fan_number | to_int }}] status: {{ status }} ({{ rpm | to_int }}RPM)
+</group>

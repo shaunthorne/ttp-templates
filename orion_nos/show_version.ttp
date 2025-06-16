@@ -1,7 +1,7 @@
-Product {{ ignore("[Nn]ame") }}: {{ model }} 
-Hardware Version: {{ hardware_version }}
-NOS Version: {{ firmware_version | ORPHRASE }}
+Product {{ ignore("[Nn]ame") }}: {{ model }}
+NOS Version: {{ firmware_version }}({{ ignore(".+") }}
 Bootstrap Version: {{ boot_version }}
+Hardware Version: {{ hardware_version }}
 {{ ignore(".+Mac.+:\s?") }}{{ mac_address | mac_eui }}
 Serial number: {{ serial_number }}
 System uptime is {{ uptime | ORPHRASE | uptimeparse }}

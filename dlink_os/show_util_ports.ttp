@@ -1,0 +1,20 @@
+<macro>
+def flatten_ports(data):
+    ports = dict()
+    for entry in data[0]:
+        for i in [1, 2]:
+            port = entry.get(f"port{i}")
+            if port:
+                ports[port] = {
+                    "tx": int(entry.get(f"tx{i}", 0)),
+                    "rx": int(entry.get(f"rx{i}", 0)),
+                    "util": int(entry.get(f"util{i}", 0)),
+                }
+    return [ports]
+</macro>
+
+<group method="table" to_int="">
+ {{ port1 | DIGIT }} {{ tx1 }} {{ rx1 }} {{ util1 }} {{ port2 }} {{ tx2 }} {{ rx2 }} {{ util2 }}
+ {{ port1 | DIGIT }} {{ tx1 }} {{ rx1 }} {{ util1 }}
+</group>
+<output macro="flatten_ports"/>

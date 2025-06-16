@@ -1,3 +1,4 @@
+<group>
   {{ model }} Device, {{ ignore ('.+')}}
   Vlan MAC {{ mac_address | mac_eui }}
   SoftWare{{ ignore('.+') }}Version {{ firmware_version }}
@@ -6,3 +7,4 @@
   
   Serial No.:{{ serial_number }}
   Uptime is {{ uptime | ORPHRASE | uptimeparse }}
+</group>

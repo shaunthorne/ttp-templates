@@ -1,0 +1,7 @@
+<vars>
+clean = " | replaceall(',') | to_int"
+</vars>
+<group name="interfaces.Ethernet{{ port }}">
+{{ port }} 5m {{ rx_pps_5m | chain("clean") }} {{ rx_bps_5m | chain("clean") }} {{ tx_pps_5m | chain("clean") }} {{ tx_bps_5m | chain("clean") }}
+          5s  {{ rx_pps | chain("clean") }} {{ rx_bps | chain("clean") }} {{ tx_pps | chain("clean") }} {{ tx_bps | chain("clean") }}
+</group>

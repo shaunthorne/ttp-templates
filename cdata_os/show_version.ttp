@@ -1,0 +1,5 @@
+<group>
+  Hardware version : {{ hardware_version }}
+  Firmware version : {{ firmware_version }} {{ ignore(".+") }}
+  Kernel version   : {{ boot_version }} {{ ignore(".+") }}
+</group>

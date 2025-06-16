@@ -1,0 +1,6 @@
+<group>
+BDCOM(tm) {{ model }} Software, Version {{ firmware_version | ORPHRASE }}
+ROM: System Bootstrap, Version {{ boot_version }}, Serial num:{{ serial_number }}
+hardware version:{{ hardware_version }}
+Base ethernet MAC Address: {{ mac_address }}
+</group>

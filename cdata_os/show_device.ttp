@@ -1,0 +1,5 @@
+<group>
+  Device model           : {{ model }}
+  Device MAC address     : {{ mac_address | mac_eui }}
+  Device serial-number   : {{ serial_number }}
+</group>
