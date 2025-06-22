@@ -1,0 +1,4 @@
+<group method="table">
+               {{ chassis_number }} {{ card_number }} {{ id }} {{ status }}               
+               {{ id }} {{ status }}
+</group>

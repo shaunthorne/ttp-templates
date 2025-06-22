@@ -1,0 +1,9 @@
+<group name="power*">
+{{ name }} Power      : {{ status }}
+</group>
+<group name="fans*" method="table">
+{{ name | ORPHRASE }}         : Speed {{ status }} ({{ rpm }} RPM)     
+</group>
+<group name="temperatures*">
+Current Temperature(Celsius) :   {{ temperature }}
+</group>

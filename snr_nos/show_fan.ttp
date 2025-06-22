@@ -1,0 +1,1 @@
+{{ id | to_int }} {{ is_inserted }} {{ status }} {{ speed }}

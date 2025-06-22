@@ -1,0 +1,1 @@
+Temperature: {{ temperature }}C/{{ temperature_fh }}F

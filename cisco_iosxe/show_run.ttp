@@ -1,0 +1,22 @@
+<group name="misc">
+! Last configuration change at {{ last_change | timestamp }} by {{ last_change_username }}
+! NVRAM config last updated at {{ last_save | timestamp }} by {{ last_save_username }}
+service password-encryption{{ password_encryption_enabled | set(True) | default(False) }}
+service unsupported-transceiver{{ unsupported_transceiver_enabled | set(True) | default(False) }}
+hostname {{ hostname }}
+<group name="misc.boot_order">
+boot-start-marker{{ __start__ }}
+boot system {{ boot_source }} {{ filename }}
+boot-end-marker{{ __end__ }}
+</group>
+</group>
+<group name="aaa">
+aaa new-model{{ aaa_new_model | set(True) | default(False) }}
+<group name="aaa.server_groups">
+aaa group server {{ type }} {{ name }}
+<group name="aaa.server_groups_servers">
+ server-private {{ server_ip }} auth-port {{ auth_port }} acct-port {{ acct_port }} key {{ key_type }} {{ key_value }}
+</group>
+aaa authentication {{ authen_type }} default group {{ authen_primary }} {{ authen_secondary }}
+aaa authorization {{ author_type }} default group {{ author_primary }} {{ author_secondary }} 
+</group>

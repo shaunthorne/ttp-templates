@@ -1,0 +1,19 @@
+<group name="temperatures">
+        Temperature ({{ names | split('/') }}): {{ values | replace('C','') | split('/') }}
+</group>
+
+<group name="fans">
+        Fan state ({{ names | split('/') }}): {{ values | ORPHRASE | replace('rpm', '') | split(' ') }}
+</group>
+
+<group name="base">
+        TYPE:                             {{ model }}:{{ hw_rev }}
+        HW_revision:                      {{ hardware_version }} 
+        SN:                               {{ serial_number }} 
+        MAC:                              {{ mac_address | mac_eui }} 
+</group>
+
+<group name="power*">
+                Module {{ number }}: {{ name | ORPHRASE }}
+                        Type: {{ type | ORPHRASE }}
+</group>
