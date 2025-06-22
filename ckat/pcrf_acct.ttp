@@ -1,4 +1,0 @@
-  IP={{ ip_address }}{{ ignore('.*') }}VLAN={{ vlan | ORPHRASE }}  login='{{ login }}'
-  {{ ignore('.*') }} MAC={{ mac_address }}
-  State: current={{ current_state | ORPHRASE }}, expected={{ ignore('.*') }}, last stop reason={{ last_stop_reason | ORPHRASE }}
-       ts_created: {{ time_created | ORPHRASE }},{{ ignore('.*') }}

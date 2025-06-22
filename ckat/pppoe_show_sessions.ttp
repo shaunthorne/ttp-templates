@@ -1,4 +1,0 @@
-  MAC={{ mac_address }} {{ ignore('.*') }} login='{{ login }}'
-         created: {{ time_created | ORPHRASE }},{{ ignore('.*') }}
-    IP={{ ip_address }} GW=100.64.0.1 DNS1=80.252.130.253 DNS2=80.252.130.254 DHCP-Options len=22
-    Statistics packet/bytes: subs->inet={{ ignore('\d+') }}/{{ bytes_out }}, inet->subs={{ ignore('\d+') }}/{{ bytes_in }}"
