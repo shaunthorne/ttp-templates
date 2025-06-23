@@ -1,1 +1,4 @@
-Temperature: {{ temperature }}C/{{ temperature_fh }}F
+<group method="table">
+Temperature: {{ temperature }}C
+Temperature: {{ temperature }}C/{{ temperature_fh }}F {{ _start_ }}
+</group>
