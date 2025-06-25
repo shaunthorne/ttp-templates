@@ -1,16 +1,24 @@
+<doc>
+TTP template to parse Eltex LTP series OLT 'show system environment' output
+
+Tested on:
+LTP-4X:rev.B
+LTP-8X-rev.C
+</doc>
+
 <group name="temperatures">
         Temperature ({{ names | split('/') }}): {{ values | replace('C','') | split('/') }}
 </group>
 
 <group name="fans">
-        Fan state ({{ names | split('/') }}): {{ values | ORPHRASE | replace('rpm', '') | split(' ') }}
+        Fan state ({{ names | split('/') }}): {{ values | re(r"[0-9]+rpm\s+[0-9]+rpm") | replace('rpm','') | split() }}
 </group>
 
 <group name="base">
-        TYPE:                             {{ model }}:{{ hw_rev }}
-        HW_revision:                      {{ hardware_version }} 
-        SN:                               {{ serial_number }} 
-        MAC:                              {{ mac_address | mac_eui }} 
+        TYPE: {{ model }}
+        HW_revision: {{ hardware_version }} 
+        SN: {{ serial_number }} 
+        MAC: {{ mac_address | mac_eui }} 
 </group>
 
 <group name="power*">

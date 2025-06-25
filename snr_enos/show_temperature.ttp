@@ -1,0 +1,3 @@
+<group>
+Temperature: {{ temperature }} C{{ ignore (".*") }}
+</group>

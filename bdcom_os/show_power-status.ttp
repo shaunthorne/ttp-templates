@@ -1,2 +1,1 @@
-  CHASSIS_NUMBER                    POWER_NUMBER                  STATUS
                {{ chassis_number }} {{ name }} {{ status }}

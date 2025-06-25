@@ -1,0 +1,9 @@
+<group>
+  Device: {{ model }}, {{ ignore(ORPHRASE) }}
+  VLAN MAC {{ mac_address | mac_eui }}
+  SoftWare Version {{ firmware_version }}
+  BootRom Version {{ boot_version }}
+  HardWare Version {{ hardware_version }}
+  Serial Num:{{ serial_number }}
+  Uptime is {{ uptime | ORPHRASE | uptimeparse }}
+</group>

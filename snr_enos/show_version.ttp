@@ -1,0 +1,9 @@
+<group>
+{{ model }} Ethernet Managed Switch
+Vlan MAC {{ mac_address | mac_eui }}
+SoftWare{{ ignore('.+') }}Version {{ firmware_version }}
+BootRom Version {{ boot_version }} ({{ ignore(".+") }})
+HardWare Version {{ hardware_version }}
+Serial No.: {{ serial_number }}
+Uptime is {{ uptime | ORPHRASE | uptimeparse }}
+</group>
