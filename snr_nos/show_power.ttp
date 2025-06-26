@@ -1,2 +1,1 @@
-
-{{ name | DIGIT }} {{ inserted }} {{ status | ORPHRASE }}
+{{ name | DIGIT }} {{ status | re(".+") | split() | join(',')}}
